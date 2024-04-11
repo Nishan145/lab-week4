@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer type="module"></script>
-    <title>Document</title>
+    <title>Guestbook</title>
   </head>
   <body>
-    <form>
-      <p>Testing the waters</p>
+    <form id="messageForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="message">Message:</label>
+      <textarea name="message" id="message" rows="2" required></textarea>
+      <button type="submit">Submit</button>
     </form>
   </body>
 </html>
