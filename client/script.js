@@ -13,8 +13,7 @@ function handleSubmit(event) {
     //
     headers: { "Content-Type": "application/json" },
   });
+  fetch("https://lab-week4-server.onrender.com/", { method: "GET" });
 }
-form.addEventListener("submit", handleSubmit);
 
-//
-fetch("https://lab-week4-server.onrender.com/", { method: "GET" });
+form.addEventListener("submit", handleSubmit);
