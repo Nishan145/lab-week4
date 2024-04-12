@@ -16,15 +16,13 @@ app.get("/", function (request, response) {
 
 // POST for submitting message
 app.post("/message", function (request, response) {
-  const newMessage = request.body;
-  //INSERT message into my database
-  db.run(
-    "INSERT INTO messages (content) VALUES (?)",
-    newMessage.content,
-    function () {
-      response.json(newMessage);
-    }
+  const { username, message } = request.body;
+
+  const insertStatement = db.prepare(
+    "INSERT INTO messages(username,message)VALUES (?,?),(?,?)"
   );
+  insertStatement.run(username, message);
+  response.send("message submit successful");
 });
 
 //listen
