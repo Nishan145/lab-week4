@@ -7,7 +7,7 @@
     <script src="script.js" defer type="module"></script>
     <title>Guestbook</title>
   </head>
-  <body>
+  <body onload="fetchMessages()">
     <form id="messageForm">
       <input type="text" id="username" placeholder="Username" />
       <textarea id="message" placeholder="Your Message"></textarea>

@@ -13,11 +13,13 @@ async function handleSubmit(event) {
     //
     headers: { "Content-Type": "application/json" },
   });
+}
+async function fetchMessages() {
   const messages = await fetch("https://lab-week4-server.onrender.com/", {
     method: "GET",
   });
   const messagesJSON = await messages.json();
-  const messageElement = document.createElement("h1");
+  const messageElement = document.createElement("li");
   messageElement.innerText = `${messagesJSON[0].username}; ${messagesJSON[0].message}`;
   document.getElementById("messageList").appendChild(messageElement);
 }
