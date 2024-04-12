@@ -19,7 +19,7 @@ app.post("/message", function (request, response) {
   const { username, message } = request.body;
 
   const insertStatement = db.prepare(
-    "INSERT INTO messages(username,message)VALUES (?,?),(?,?)"
+    "INSERT INTO messages(username,message)VALUES (?,?)"
   );
   insertStatement.run(username, message);
   response.send("message submit successful");
