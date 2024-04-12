@@ -1,6 +1,6 @@
 const form = document.getElementById("messageForm");
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const username = event.target.username.value;
   const message = event.target.message.value;
@@ -13,7 +13,10 @@ function handleSubmit(event) {
     //
     headers: { "Content-Type": "application/json" },
   });
-  fetch("https://lab-week4-server.onrender.com/", { method: "GET" });
+  const messages = await fetch("https://lab-week4-server.onrender.com/", {
+    method: "GET",
+  });
+  console.log(messages);
 }
 
 form.addEventListener("submit", handleSubmit);
