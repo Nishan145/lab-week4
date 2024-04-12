@@ -16,7 +16,10 @@ async function handleSubmit(event) {
   const messages = await fetch("https://lab-week4-server.onrender.com/", {
     method: "GET",
   });
-  console.log(await messages.json());
+  const messagesJSON = await messages.json();
+  const messageElement = document.createElement("h1");
+  messageElement.innerText = `${messagesJSON[0].username}; ${messageJSON[0].message}`;
+  document.getElementById("messageList").appendChild(messageElement);
 }
 
 form.addEventListener("submit", handleSubmit);
