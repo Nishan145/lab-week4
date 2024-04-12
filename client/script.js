@@ -13,6 +13,9 @@ async function handleSubmit(event) {
     //
     headers: { "Content-Type": "application/json" },
   });
+  const messageElement = document.createElement("li");
+  messageElement.innerText = `${username}; ${message}`;
+  document.getElementById("messageList").appendChild(messageElement);
 }
 async function fetchMessages() {
   const messages = await fetch("https://lab-week4-server.onrender.com/", {
@@ -26,3 +29,6 @@ async function fetchMessages() {
 
 form.addEventListener("submit", handleSubmit);
 window.addEventListener("load", fetchMessages);
+
+// loop to render all the messages in messageJSON
+// add a new list item like 22
