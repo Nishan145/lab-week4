@@ -25,3 +25,4 @@ async function fetchMessages() {
 }
 
 form.addEventListener("submit", handleSubmit);
+window.addEventListener("load", fetchMessages);
