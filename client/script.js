@@ -5,8 +5,8 @@ function handleSubmit(event) {
   const username = event.target.username.value;
   const message = event.target.message.value;
   console.log({ username, message });
-  fetch("https://lab-week4-server.onrender.com", {
-    method: "GET",
+  fetch("https://lab-week4-server.onrender.com/message", {
+    method: "POST",
     body: JSON.stringify({ username, message }),
     headers: { "Content-Type": "application/json" },
   });
