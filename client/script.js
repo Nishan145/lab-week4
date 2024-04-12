@@ -22,6 +22,7 @@ async function fetchMessages() {
     method: "GET",
   });
   const messagesJSON = await messages.json();
+  //make a loop
   const messageElement = document.createElement("li");
   messageElement.innerText = `${messagesJSON[0].username}; ${messagesJSON[0].message}`;
   document.getElementById("messageList").appendChild(messageElement);
