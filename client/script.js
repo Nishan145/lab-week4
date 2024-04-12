@@ -18,7 +18,7 @@ async function handleSubmit(event) {
   });
   const messagesJSON = await messages.json();
   const messageElement = document.createElement("h1");
-  messageElement.innerText = `${messagesJSON[0].username}; ${messageJSON[0].message}`;
+  messageElement.innerText = `${messagesJSON[0].username}; ${messagesJSON[0].message}`;
   document.getElementById("messageList").appendChild(messageElement);
 }
 
