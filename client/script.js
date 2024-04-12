@@ -10,7 +10,6 @@ async function handleSubmit(event) {
   fetch("https://lab-week4-server.onrender.com/message", {
     method: "POST",
     body: JSON.stringify({ username, message }),
-    //
     headers: { "Content-Type": "application/json" },
   });
   const messageElement = document.createElement("li");
@@ -22,14 +21,16 @@ async function fetchMessages() {
     method: "GET",
   });
   const messagesJSON = await messages.json();
-  //make a loop
-  const messageElement = document.createElement("li");
-  messageElement.innerText = `${messagesJSON[0].username}; ${messagesJSON[0].message}`;
-  document.getElementById("messageList").appendChild(messageElement);
+
+  const messageList = document.getElementById("messageList");
+  messageList.innerHTML = "";
+
+  messagesJSON.forEach((message) => {
+    const messageElement = document.createElement("li");
+    messageElement.innerText = `${message.username}; ${message.message}`;
+    messageList.appendChild(messageElement);
+  });
 }
 
 form.addEventListener("submit", handleSubmit);
 window.addEventListener("load", fetchMessages);
-
-// loop to render all the messages in messageJSON
-// add a new list item like 22
